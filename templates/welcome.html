@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    <title>Document</title>
 </head>
 <body>
-welcome
-<a href="{% url 'login' %}">login</a>
-<a href="{% url 'signup' %}">signup</a>
+    <div class="wrapper">
+        <div class="welcome" style="background-image: url('{% static 'images/bgwelcome.jpg' %}');">
+            <div class="welcome_opacity">
+                <div class="welcome_start">
+                    <div class="welcome_text">
+                        <h2>Calorie Monitor</h2>
+                        <p>Welcome to my calorie monitor app</p>
+                    </div>
+                    <div class="welcome_login">
+                        <button><a href="{% url 'signup' %}">Register</a></button>
+                        <a href="{% url 'login' %}">Sign in</a>
+                    </div>
+                </div>
+              
+            </div>
+ 
+        </div>
+    </div>
+
 </body>
 </html>

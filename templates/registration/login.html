@@ -1,12 +1,43 @@
-<!-- templates/registration/login.html -->
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-<p>Don't have an account? <a href="{% url 'signup' %}">Sign up now</a></p>
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- Adjusted for Django static files -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">  <!-- Adjusted for Django static files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sign In - Calorie Monitor</title>
+</head>
+<body>
+    <div class="login" style="background-image: url('{% static 'images/loginbg.jpg' %}');">
+        <div class="login_bg">
+            <div class="login_start">
+                <form method="post" action="{% url 'login' %}">  <!-- Form action set to Django's login URL -->
+                    {% csrf_token %}  <!-- CSRF token for security -->
+                    <div class="login_text">
+                        <h2>Calorie Monitor</h2>
+                        <p>Sign In</p>
+                    </div>
+                    <div class="login_inputs">
+                        <div class="register_email ref_input">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" name="username" placeholder="Username">  <!-- Name adjusted for default Django authentication -->
+                        </div>
+                        <div class="register_password ref_input">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" name="password" placeholder="Password">  <!-- Name adjusted for default Django authentication -->
+                        </div>
+                    </div>
+                    <div class="login_links">
+                        <button type="submit" style="margin-top: 50px">Sign In</button>  <!-- Button corrected for form submission -->
+                        <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>  <!-- URL for registration page -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

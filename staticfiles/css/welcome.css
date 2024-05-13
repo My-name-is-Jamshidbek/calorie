@@ -1,0 +1,72 @@
+.welcome{
+    background: url("./images/bgwelcome.jpg") no-repeat center center / cover;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+  
+}
+.welcome_opacity{
+    background: #000;
+    top: 0;
+    height: 100vh;
+    opacity: .7;
+    width: 100%;
+    position: absolute;
+    z-index: 11;
+
+}
+.welcome_text{
+    text-align: center;
+    color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+.welcome_text h2{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.welcome_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.welcome_login button{
+    background-color: tomato;
+    width: 150px;
+    border: none;
+    height: 50px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+
+    cursor: pointer;
+}
+.welcome_login button a{
+    color: #fff;
+    text-decoration: none;
+}
+.welcome_login > a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+.welcome_start{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+}
+.welcome_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.welcome_login{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+}

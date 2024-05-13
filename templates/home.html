@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+    
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Hello, {{ user.username }}!</h1>
+  <p class="lead">Welcome to our website. We are glad to have you here.</p>
+  <hr class="my-4">
+  <p>Use the navigation to explore our site and find out more about what we offer.</p>
+</div>
+{% endblock %}

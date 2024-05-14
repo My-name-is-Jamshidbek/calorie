@@ -3,10 +3,82 @@
 {% block title %}Home{% endblock %}
     
 {% block content %}
-<div class="jumbotron">
-  <h1 class="display-4">Hello, {{ user.username }}!</h1>
-  <p class="lead">Welcome to our website. We are glad to have you here.</p>
-  <hr class="my-4">
-  <p>Use the navigation to explore our site and find out more about what we offer.</p>
-</div>
+    <div class="content_search">
+        <div class="search">
+            <input type="search" placeholder="Seach your food">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="content_search-user">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+    <div class="content_text">
+        <h2>HEllO {{ user.username }}</h2>
+        <p>What do you want?</p>
+    </div>
+    <div class="content_list">
+        <div class="content_list-box actives">
+            <i class="fa-solid fa-pizza-slice"></i>
+            <p>Pizza</p>
+        </div>
+        <div class="content_list-box">
+            <i class="fa-solid fa-burger"></i>                    <p>Burger</p>
+        </div>
+        <div class="content_list-box">
+            <i class="fa-solid fa-pizza-slice"></i>
+            <p>Pizza</p>
+        </div>
+        <div class="content_list-box">
+            <i class="fa-solid fa-ice-cream"></i>                    <p>Ice Cream</p>
+        </div>
+
+
+    </div>
+    <div class="content_dishes">
+        <div class="content_dishes-start">
+            <div class="content_dishes-box">
+                <div class="content_dishes-box-img">
+                    <img src="./images/pizza1.jpg" alt="">
+                </div>
+                <div class="content_dishes-box-text">
+                    <div class="content_dishes-box-text-top">
+                        <p>Pizza</p>
+                        <div class="content_start">
+                          <button>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <p>300 Calories</p>
+                </div>
+            </div>
+         
+            <div class="content_dishes-box">
+                <div class="content_dishes-box-img">
+                    <img src="./images/pizza2.jpg" alt="">
+                </div>
+                <div class="content_dishes-box-text">
+                    <div class="content_dishes-box-text-top">
+                        <p>Pizza</p>
+                        <div class="content_start">
+                          <button>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <p>300 Calories</p>
+                </div>
+            </div>
+            <div class="content_dishes-box">
+                <div class="content_dishes-box-img">
+                    <img src="./images/pizza3.jpg" alt="">
+                </div>
+                <div class="content_dishes-box-text">
+                    <div class="content_dishes-box-text-top">
+                        <p>Pizza</p>
+                        <div class="content_start">
+                          <button>Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <p>300 Calories</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

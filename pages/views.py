@@ -1,4 +1,5 @@
 import datetime
+from django.db.models import Sum
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
@@ -51,10 +52,13 @@ def cart(request):
             start_day = datetime.datetime.combine(date, datetime.time.min)
             end_day = datetime.datetime.combine(date, datetime.time.max)
             foods = Cart.objects.filter(created_at__range=(start_day, end_day))
+            total_calories = foods.aggregate(total_calories=Sum('food__calories'))['total_calories']
         else:
             foods = Cart.objects.filter(user=request.user).all()[::-1]
-
+            total_calories = False
     else:
         foods = Cart.objects.filter(user=request.user).all()[::-1]
+        total_calories = False
+
     return render(request, 'cart.html', {'foods': foods, 'date':
-                                         date_input})
+                                         date_input, 'total_calories':total_calories})

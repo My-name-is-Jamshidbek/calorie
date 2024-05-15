@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Register - Calorie Monitor</title>
+    <title>Регистрация - Мониторинг Калорий</title>
 </head>
 <body>
     <div class="wrapper">
@@ -31,37 +31,37 @@
                         </div>
                     {% endif %}
                     <div class="register_text">
-                        <h2>Calorie Monitor</h2>
-                        <p>Register</p>
+                        <h2>Мониторинг Калорий</h2>
+                        <p>Регистрация</p>
                     </div>
                     <div class="register_inputs">
                         <div class="register_name ref_input">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" name="username" placeholder="Username" value="{{ form.username.value|default_if_none:'' }}">
+                            <input type="text" name="username" placeholder="Имя пользователя" value="{{ form.username.value|default_if_none:'' }}">
                             {% if form.username.errors %}
                                 <div class="error">{{ form.username.errors.as_text }}</div>
                             {% endif %}
                         </div>
                         <div class="register_password ref_input">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" name="password1" placeholder="Password">
+                            <input type="password" name="password1" placeholder="Пароль">
                             {% if form.password1.errors %}
                                 <div class="error">{{ form.password1.errors.as_text }}</div>
                             {% endif %}
                         </div>
                         <div class="register_password ref_input">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" name="password2" placeholder="Confirm Password">
+                            <input type="password" name="password2" placeholder="Подтвердите пароль">
                             {% if form.password2.errors %}
                                 <div class="error">{{ form.password2.errors.as_text }}</div>
                             {% endif %}
                         </div>
                     </div>
                     <div class="register_links">
-                        <button type="submit">Register</button>
-                        <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
-                    </form>
-                </div>
+                        <button type="submit">Зарегистрироваться</button>
+                        <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

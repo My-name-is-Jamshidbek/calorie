@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
-    <title>Document</title>
+    <title>Документ</title>
 </head>
 <body>
     <div class="wrapper">
@@ -14,12 +14,12 @@
             <div class="welcome_opacity">
                 <div class="welcome_start" style="flex-direction: column; justify-content: center"  >
                     <div class="welcome_text" style="margin-bottom: 40px">
-                        <h2>Calorie Monitor</h2>
-                        <p>Welcome to my calorie monitor app</p>
+                        <h2>Мониторинг Калорий</h2>
+                        <p>Добро пожаловать в приложение для мониторинга калорий</p>
                     </div>
                     <div class="welcome_login">
-                        <button><a href="{% url 'signup' %}">Register</a></button>
-                        <a href="{% url 'login' %}">Sign in</a>
+                        <button><a href="{% url 'signup' %}">Регистрация</a></button>
+                        <a href="{% url 'login' %}">Войти</a>
                     </div>
                 </div>
               

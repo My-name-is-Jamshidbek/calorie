@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Home{% endblock %}
+{% block title %}Главная{% endblock %}
 {% block page_name %}
-    <a style="text-decoration: none ; color: white" href="{% url 'home' %}">Home</a>
+    <a style="text-decoration: none ; color: white" href="{% url 'home' %}">Главная</a>
 {% endblock %}
 {% block content %}
 <div class="content_search">
         <form action="{% url 'home' %}" method="get" class="search">
-            <input type="search" name="query" placeholder="Search your food" {% if query %}value="{{ query }}"{% endif %}>
+            <input type="search" name="query" placeholder="Поиск еды" {% if query %}value="{{ query }}"{% endif %}>
 {#            <button type="submit">#}
                 <i class="fa-solid fa-magnifying-glass"></i>
 {#            </button>#}
@@ -17,32 +17,32 @@
         </div>
     </div>
     <div class="content_text">
-        <h2>HEllO {{ user.username }}</h2>
-        <p>What do you want?</p>
+        <h2>ПРИВЕТ {{ user.username }}</h2>
+        <p>Что вы хотите?</p>
     </div>
     <div class="content_list">
         <div class="content_list-box{% if food_type == 'MEAT' %} actives {% endif %}">
             <a  href="{% url 'home' %}?food_type=MEAT" style="display: flex; flex-direction: column; align-items: center; text-decoration: none">
-                <img src="{% static 'images/meat.png' %}" width="50%" alt="Food Icon">
-                <p>Meat</p>
+                <img src="{% static 'images/meat.png' %}" width="50%" alt="Иконка еды">
+                <p>Мясо</p>
             </a>
         </div>
         <div class="content_list-box{% if food_type == 'FRUIT' %} actives {% endif %}">
-            <a style="text-decoration: none"" href="{% url 'home' %}?food_type=FRUIT">
-                <img src="{% static 'images/FRUIT.png' %}" width="50%" alt="Food Icon">
-                <p>Fruit</p>
+            <a style="text-decoration: none" href="{% url 'home' %}?food_type=FRUIT">
+                <img src="{% static 'images/FRUIT.png' %}" width="50%" alt="Иконка еды">
+                <p>Фрукты</p>
             </a>
         </div>
         <div class="content_list-box{% if food_type == 'FOOD' %} actives {% endif %}">
-            <a style="text-decoration: none"" href="{% url 'home' %}?food_type=FOOD">
-                <img src="{% static 'images/FOOD.png' %}" width="50%" alt="Food Icon">
-                <p>Food</p>
+            <a style="text-decoration: none" href="{% url 'home' %}?food_type=FOOD">
+                <img src="{% static 'images/FOOD.png' %}" width="50%" alt="Иконка еды">
+                <p>Еда</p>
             </a>
         </div>
         <div class="content_list-box{% if food_type == 'VEGETABLE' %} actives {% endif %}">
-            <a style="text-decoration: none"" href="{% url 'home' %}?food_type=VEGETABLE">
-                <img src="{% static 'images/vegetable.png' %}" width="50%" alt="Food Icon">
-                <p>Vegetable</p>
+            <a style="text-decoration: none" href="{% url 'home' %}?food_type=VEGETABLE">
+                <img src="{% static 'images/vegetable.png' %}" width="50%" alt="Иконка еды">
+                <p>Овощи</p>
             </a>
         </div>
 
@@ -53,16 +53,16 @@
             {% for food in foods %}
                 <div class="content_dishes-box">
                 <div class="content_dishes-box-img">
-                    <img style="    object-fit: cover;" src="{{ food.image.url }}" alt="">
+                    <img style="object-fit: cover;" src="{{ food.image.url }}" alt="">
                 </div>
                 <div style="top: -45px" class="content_dishes-box-text">
                     <div class="content_dishes-box-text-top">
-                        <p>{{ food.name }} {{ food.serving }} gr<br>
-                            {{ food.calories }} Calories</p>
+                        <p>{{ food.name }} {{ food.serving }} гр<br>
+                            {{ food.calories }} калорий</p>
                         <div class="content_start">
                             <form action="{% url 'add_to_cart' food.pk %}" method="post">
                                 {% csrf_token %}
-                                <button type="submit">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                                <button type="submit">Добавить <i class="fa-solid fa-add"></i></button>
                             </form>
                         </div>
                     </div>

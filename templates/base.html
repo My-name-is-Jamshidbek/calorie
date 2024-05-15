@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -38,20 +38,20 @@
                                 <div style="gap: 20px" class="menu_bottom-box">
                                     <a style="text-decoration: none; color: white" href="{% url 'home' %}">
                                         <i class="fa-solid fa-house"></i>
-                                        Home
+                                        Главная
                                     </a>
                                 </div>
                                 <div style="gap: 20px" class="menu_bottom-box">
                                     <a style="text-decoration: none; color: white" href="{% url 'cart' %}">
                                         <i class="fa-regular fa-note-sticky"></i>
-                                        My calories
+                                        Мои калории
                                     </a>
                                 </div>
                                 <div style="align-items: center ; gap: 5px" class="menu_bottom-box">
 <i class="fa-solid fa-right-from-bracket"></i>                                    <form action="{% url 'logout' %}" method="post">
                                         {% csrf_token %}
                                         <button type="submit" class="btn-logout" style="background: none; border: none; cursor: pointer; color: inherit; padding: 0; font: inherit;">
-                                            Logout
+                                            Выйти
                                         </button>
                                     </form>
                                 </div>
@@ -61,7 +61,7 @@
 
                 </div>
                 {% block page_name %}
-                    <a style="text-decoration: none; color: white" href="{% url 'home' %}">Home</a>
+                    <a style="text-decoration: none; color: white" href="{% url 'home' %}">Главная</a>
                 {% endblock %}
                 <div class="point">
 

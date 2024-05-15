@@ -1,26 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}
-Card
+Корзина
 {% endblock %}
 {% block page_name %}
-    <a style="text-decoration: none; color: #fff" href="{% url 'cart' %}">Cart</a>
+    <a style="text-decoration: none; color: #fff" href="{% url 'cart' %}">Корзина</a>
 {% endblock %}
 {% block content %}
             <div class="content_data">
                 <div class="data">
                     <div class="content_text">
-                        <h2>HEllO Ali</h2>
+                        {% if total_calories %}
+                            Всего {{ total_calories }} калорий
+                        {% else %}
+                            <h2>Калории</h2>
+                        {% endif %} 
                     </div>
                     <form action="{% url 'cart' %}" method="get" id="date-search-form">
-                        <input type="date" name="date" id="date-input" placeholder="Select Date"
+                        <input type="date" name="date" id="date-input" placeholder="Выберите дату"
                                    value="{{ date|default_if_none:'' }}">
                     </form>
                 </div>
-
             </div>
-
-
-
             <div class="content_dishes">
                 <div class="content_dishes-start">
                     {% for food in foods %}
@@ -30,7 +30,7 @@ Card
                             </div>
                             <div style="top: -45px" class="content_dishes-box-text">
                                 <div class="content_dishes-box-text-top">
-                                    <p>{{ food.food.name }} {{ food.food.serving }} gr {{ food.food.calories }} Calories <br>
+                                    <p>{{ food.food.name }} {{ food.food.serving }} гр {{ food.food.calories }} калорий <br>
                                         {{ food.created_at }}</p>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ Card
 {% block script %}
 	<script>
         document.getElementById('date-input').addEventListener('change', function() {
-            this.form.submit();  // Submit the form when the date is changed
+            this.form.submit();  // Отправка формы при изменении даты
         });
     </script>
 {% endblock %}

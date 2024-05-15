@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+Card
+{% endblock %}
+{% block page_name %}
+    <a href="{% url 'cart' %}">Cart</a>
+{% endblock %}
+{% block content %}
+            <div class="content_data">
+                <div class="data">
+                    <div class="content_text">
+                        <h2>HEllO Ali</h2>
+                    </div>
+                    <form action="{% url 'cart' %}" method="get" id="date-search-form">
+                        <input type="date" name="date" id="date-input" placeholder="Select Date"
+                                   value="{{ date|default_if_none:'' }}">
+                    </form>
+                </div>
+
+            </div>
+
+
+
+            <div class="content_dishes">
+                <div class="content_dishes-start">
+                    {% for food in foods %}
+                        <div class="content_dishes-box">
+                            <div class="content_dishes-box-img">
+                                <img src="{{ food.food.image.url }}" alt="">
+                            </div>
+                            <div class="content_dishes-box-text">
+                                <div class="content_dishes-box-text-top">
+                                    <p>{{ food.food.name }} {{ food.food.serving }} {{ food.food.calories }} Calories <br>
+                                        {{ food.created_at }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+{% endblock %}
+{% block script %}
+	<script>
+        document.getElementById('date-input').addEventListener('change', function() {
+            this.form.submit();  // Submit the form when the date is changed
+        });
+    </script>
+{% endblock %}

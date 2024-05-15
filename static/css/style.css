@@ -212,6 +212,11 @@
 .content_list-box p{
     color: #fff;
 }
+.content_list-box a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .content_dishes-box-img{
     width: 100%;
     height: 300px;

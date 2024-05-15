@@ -35,21 +35,20 @@
                         </div>
                         <div class="menu_bottom">
                             <div class="menu_bottom-start">
-                                <div class="menu_bottom-box">
-                                    <a href="{% url 'home' %}">
+                                <div style="gap: 20px" class="menu_bottom-box">
+                                    <a style="text-decoration: none; color: white" href="{% url 'home' %}">
                                         <i class="fa-solid fa-house"></i>
                                         Home
                                     </a>
                                 </div>
-                                <div class="menu_bottom-box">
-                                    <a href="{% url 'cart' %}">
+                                <div style="gap: 20px" class="menu_bottom-box">
+                                    <a style="text-decoration: none; color: white" href="{% url 'cart' %}">
                                         <i class="fa-regular fa-note-sticky"></i>
                                         My calories
                                     </a>
                                 </div>
-                                <div class="menu_bottom-box">
-                                    <i class="fa-regular fa-note-sticky"></i>
-                                    <form action="{% url 'logout' %}" method="post">
+                                <div style="align-items: center ; gap: 5px" class="menu_bottom-box">
+<i class="fa-solid fa-right-from-bracket"></i>                                    <form action="{% url 'logout' %}" method="post">
                                         {% csrf_token %}
                                         <button type="submit" class="btn-logout" style="background: none; border: none; cursor: pointer; color: inherit; padding: 0; font: inherit;">
                                             Logout
@@ -62,7 +61,7 @@
 
                 </div>
                 {% block page_name %}
-                    <a href="{% url 'home' %}">Home</a>                	
+                    <a style="text-decoration: none; color: white" href="{% url 'home' %}">Home</a>
                 {% endblock %}
                 <div class="point">
 

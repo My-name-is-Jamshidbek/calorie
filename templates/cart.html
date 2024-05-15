@@ -3,7 +3,7 @@
 Card
 {% endblock %}
 {% block page_name %}
-    <a href="{% url 'cart' %}">Cart</a>
+    <a style="text-decoration: none; color: #fff" href="{% url 'cart' %}">Cart</a>
 {% endblock %}
 {% block content %}
             <div class="content_data">
@@ -26,11 +26,11 @@ Card
                     {% for food in foods %}
                         <div class="content_dishes-box">
                             <div class="content_dishes-box-img">
-                                <img src="{{ food.food.image.url }}" alt="">
+                                <img style="object-fit: cover" src="{{ food.food.image.url }}" alt="">
                             </div>
-                            <div class="content_dishes-box-text">
+                            <div style="top: -45px" class="content_dishes-box-text">
                                 <div class="content_dishes-box-text-top">
-                                    <p>{{ food.food.name }} {{ food.food.serving }} {{ food.food.calories }} Calories <br>
+                                    <p>{{ food.food.name }} {{ food.food.serving }} gr {{ food.food.calories }} Calories <br>
                                         {{ food.created_at }}</p>
                                 </div>
                             </div>

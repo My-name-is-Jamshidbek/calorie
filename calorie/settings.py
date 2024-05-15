@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1ug3w^u#*5uum7^t^3_!vfllx6xizrq@l-o5i#i$hm58l4$&+%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -131,7 +131,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = '/static/'
 
 # Optional: specify the directory where static files will be collected
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'caloriestaticfiles')
 
 # Optional: Additional locations of static files
 STATICFILES_DIRS = [

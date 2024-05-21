@@ -30,7 +30,7 @@
                             </div>
                             <div style="top: -45px" class="content_dishes-box-text">
                                 <div class="content_dishes-box-text-top">
-                                    <p>{{ food.food.name }} {{ food.food.serving }} гр {{ food.food.calories }} калорий <br>
+                                    <p>{{ food.food.name }} {% if food.gram %}{{ food.gram }}{% else %}{{ food.food.serving }}{% endif %} гр {% if food.gram %}{{ food.cals }}{% else %}{{ food.food.calories }}{% endif %} калорий <br>
                                         {{ food.created_at }}</p>
                                 </div>
                             </div>

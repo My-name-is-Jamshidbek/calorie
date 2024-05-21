@@ -1,5 +1,5 @@
 import datetime
-from django.db.models import Sum
+from django.db.models import Sum, F, ExpressionWrapper, FloatField, Case, When
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
@@ -31,16 +31,30 @@ def home(request):
         return render(request, 'welcome.html')
 
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import FoodItem, Cart
+
 @login_required
 def add_to_cart(request, food_id):
     food = get_object_or_404(FoodItem, pk=food_id)
-    cart_item = Cart.objects.create(user=request.user, food=food)
+    grams = int(request.POST.get('grams', 0))
+
+    if grams <= 0:
+        return redirect('home')  # Redirect or handle invalid gram input
+
+    cart_item = Cart.objects.create(user=request.user, food=food, gram=grams)
     cart_item.save()
+
+
     next_url = request.META.get('HTTP_REFERER')
     if next_url:
         return redirect(next_url)
     else:
         return redirect('home')
+
+
+from django.views.decorators.http import require_POST
 
 
 def cart(request):
@@ -52,7 +66,15 @@ def cart(request):
             start_day = datetime.datetime.combine(date, datetime.time.min)
             end_day = datetime.datetime.combine(date, datetime.time.max)
             foods = Cart.objects.filter(created_at__range=(start_day, end_day))
-            total_calories = foods.aggregate(total_calories=Sum('food__calories'))['total_calories']
+            total_calories = foods.aggregate(
+                total_calories=Sum(
+                    Case(
+                        When(gram__gt=0, then=F('food__calories') * F('gram') / F('food__serving')),
+                        default=F('food__calories'),
+                        output_field=FloatField()
+                    )
+                )
+            )['total_calories']
         else:
             foods = Cart.objects.filter(user=request.user).all()[::-1]
             total_calories = False

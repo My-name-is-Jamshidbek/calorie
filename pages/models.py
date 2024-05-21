@@ -27,8 +27,12 @@ class FoodItem(models.Model):
 class Cart(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='cart')
     food = models.ForeignKey(FoodItem, on_delete=models.CASCADE, related_name='cart_items')
+    gram = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.food.name}'
+        return f'{self.food.name} - {self.gram} grams'
+
+    def cals(self):
+        return int(int(self.gram)*(int(self.food.calories)/int(self.food.serving)))

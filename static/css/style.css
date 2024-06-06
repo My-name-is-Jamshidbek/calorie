@@ -236,13 +236,11 @@
     padding: 20px 10px ;
     z-index: 12;
     top: -100px;
-    height: 100px;
 }
 .content_start button{
     background-color: tomato;
     border-radius: 30px;
     padding: 10px;
-    width: 120px;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -270,4 +268,10 @@
 }
 .content_text {
     margin-bottom: 0;
+}
+.content_start{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
 }

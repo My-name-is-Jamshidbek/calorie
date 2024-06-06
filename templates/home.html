@@ -59,12 +59,13 @@
         <div class="content_dishes-box-text-top">
             <p>{{ food.name }} {{ food.serving }} гр<br>
                 {{ food.calories }} калорий</p>
-            <button type="button" class="select-gram-btn" data-food-id="{{ food.pk }}">Выбрать граммы <i class="fa-solid fa-add"></i></button>
             <div class="content_start">
                 <form action="{% url 'add_to_cart' food.pk %}" method="post">
                     {% csrf_token %}
                     <button type="submit">Добавить <i class="fa-solid fa-add"></i></button>
                 </form>
+            <button type="button" class="select-gram" data-food-id="{{ food.pk }}">Выбрать граммы <i class="fa-solid fa-add"></i></button>
+                
             </div>
         </div>
     </div>
